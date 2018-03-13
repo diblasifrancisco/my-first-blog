@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from auditlog.registry import auditlog
 
 
 class Post(models.Model):
@@ -17,3 +18,6 @@ def publish(self):
 
 def __str__(self):
     return self.title
+
+
+auditlog.register(Post)
